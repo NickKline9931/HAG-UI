@@ -17,10 +17,11 @@ export default function Browse() {
   const workDisplay = works.map((work, index) => {
     return (
       <li key={index}>
-        <img src={work.primaryimageurl} alt="work" />
-        <h2>{work.title}</h2>
-        <h3>{work.people[0].name}</h3>
-        <h4>{work.dated}</h4>
+        <a href={work.url} target="_blank" rel="noopener noreferrer">
+          <img src={work.primaryimageurl} alt="work" />
+          <h2>{work.title}</h2>
+          <h4>{work.dated}</h4>
+        </a>
       </li>
     );
   });
