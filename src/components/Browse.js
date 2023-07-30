@@ -3,8 +3,13 @@ import React, { useState, useEffect } from "react";
 export default function Browse() {
   const [works, setWorks] = useState([]);
   useEffect(() => {
+    document.title = "Browse - Art Museum";
+  }, []);
+
+  useEffect(() => {
     fetchData();
   }, []);
+
   async function fetchData() {
     const response = await fetch(
       "https://api.harvardartmuseums.org/object?size=20&page=1&apikey=929885c9-4f01-4b51-ab44-041662619591"

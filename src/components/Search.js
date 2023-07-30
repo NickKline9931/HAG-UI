@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Search() {
   const [query, setQuery] = useState("");
@@ -7,6 +7,10 @@ export default function Search() {
   function changeQuery(e) {
     setQuery(e.target.value);
   }
+
+  useEffect(() => {
+    document.title = "Search - Art Museum";
+  }, []);
 
   async function enterSearch() {
     const response = await fetch(
