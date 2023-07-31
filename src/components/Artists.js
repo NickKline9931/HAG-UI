@@ -1,45 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Artists() {
-  const alphabet = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-  ];
+  const [artists, setArtists] = useState([]);
+  async function getArtists() {
+    const response = await fetch(
+      "https://api.harvardartmuseums.org/person?q=roles.role:Artist&fields=displayname,id&size=100&page=1&apikey=929885c9-4f01-4b51-ab44-041662619591"
+    );
+    const data = await response.json();
+    const artData = data.records;
+    setArtists(artData);
+  }
 
   useEffect(() => {
     document.title = "Search - Art Museum";
+    getArtists();
   }, []);
 
-  const alphabetDisplay = alphabet.map((letter, index) => {
-    return (
-      <button type="button" key={index} value={letter}>
-        {letter}
-      </button>
-    );
+  const artistDisplay = artists.map((artist, index) => {
+    return <li key={index}>{artist.displayname}</li>;
   });
-  return <div>{alphabetDisplay}</div>;
+  return (
+    <div>
+      <ul>{artistDisplay}</ul>
+    </div>
+  );
 }
