@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function Search() {
+  const navigate = useNavigate();
+  const { q } = useParams();
   const { page } = useParams();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
@@ -14,17 +16,27 @@ export default function Search() {
     document.title = "Search - Art Museum";
   }, []);
 
-  async function enterSearch() {
-    const response = await fetch(
-      "https://api.harvardartmuseums.org/object?size=20&" +
-        page +
-        "&q=" +
-        query +
-        "&apikey=929885c9-4f01-4b51-ab44-041662619591"
-    );
-    const data = await response.json();
-    const artData = data.records;
-    setResults(artData);
+  useEffect(() => {
+    getSearchItems();
+  }, [q]);
+
+  async function getSearchItems() {
+    if (q != null) {
+      const response = await fetch(
+        "https://api.harvardartmuseums.org/object?" +
+          q +
+          "&size=20&" +
+          page +
+          "&apikey=929885c9-4f01-4b51-ab44-041662619591"
+      );
+      const data = await response.json();
+      const artData = data.records;
+      setResults(artData);
+    }
+  }
+
+  function enterSearch() {
+    navigate("/search/q=" + query + "/page=1");
   }
 
   const resultsDisplay = results.map((res, index) => {
