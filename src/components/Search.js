@@ -16,7 +16,7 @@ export default function Search() {
 
   async function enterSearch() {
     const response = await fetch(
-      "https://api.harvardartmuseums.org/object?size=20&page=" +
+      "https://api.harvardartmuseums.org/object?size=20&" +
         page +
         "&q=" +
         query +

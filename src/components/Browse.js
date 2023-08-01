@@ -15,7 +15,7 @@ export default function Browse() {
 
   async function fetchData() {
     const response = await fetch(
-      "https://api.harvardartmuseums.org/object?fields=title,peoplecount,people,url,primaryimageurl,baseimageurl,dated&size=20&page=" +
+      "https://api.harvardartmuseums.org/object?fields=title,peoplecount,people,url,primaryimageurl,baseimageurl,dated&size=20&" +
         page +
         "&apikey=929885c9-4f01-4b51-ab44-041662619591"
     );
