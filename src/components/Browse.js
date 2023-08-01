@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "../styles/Browse.css";
 
 export default function Browse() {
+  const { page } = useParams();
   const [works, setWorks] = useState([]);
   useEffect(() => {
     document.title = "Browse - Art Museum";
@@ -13,7 +15,9 @@ export default function Browse() {
 
   async function fetchData() {
     const response = await fetch(
-      "https://api.harvardartmuseums.org/object?fields=title,peoplecount,people,url,primaryimageurl,baseimageurl,dated&size=20&page=1&apikey=929885c9-4f01-4b51-ab44-041662619591"
+      "https://api.harvardartmuseums.org/object?fields=title,peoplecount,people,url,primaryimageurl,baseimageurl,dated&size=20&page=" +
+        page +
+        "&apikey=929885c9-4f01-4b51-ab44-041662619591"
     );
     const data = await response.json();
     const artData = data.records;
