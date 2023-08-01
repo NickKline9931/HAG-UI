@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="users" element={<Users />} />
           <Route path="browse/:page" element={<Browse />} />
-          <Route path="search" element={<Search />} />
+          <Route path="search/:page" element={<Search />} />
           <Route path="artists" element={<Artists />} />
           <Route path="randomartist" element={<RandomArtist />} />
         </Routes>
