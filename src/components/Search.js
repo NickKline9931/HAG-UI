@@ -49,12 +49,10 @@ export default function Search() {
   });
   return (
     <div>
-      <form>
-        <input type="text" value={query} onChange={changeQuery}></input>
-        <button type="button" onClick={enterSearch}>
-          Submit
-        </button>
-      </form>
+      <input type="text" value={query} onChange={changeQuery}></input>
+      <button type="button" onClick={enterSearch}>
+        Submit
+      </button>
       <ul>{resultsDisplay}</ul>
     </div>
   );
