@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export default function Search() {
+  const { page } = useParams();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
 
@@ -14,7 +16,9 @@ export default function Search() {
 
   async function enterSearch() {
     const response = await fetch(
-      "https://api.harvardartmuseums.org/object?size=20&page=1&q=" +
+      "https://api.harvardartmuseums.org/object?size=20&page=" +
+        page +
+        "&q=" +
         query +
         "&apikey=929885c9-4f01-4b51-ab44-041662619591"
     );
