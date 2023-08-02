@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "../styles/Browse.css";
 
 export default function Browse() {
+  const navigate = useNavigate();
   const { page } = useParams();
   const [works, setWorks] = useState([]);
   useEffect(() => {
@@ -34,10 +35,16 @@ export default function Browse() {
             style={{ backgroundImage: "url(" + work.baseimageurl + ")" }}
             alt="work"
           />
-          <h2>{work.title}</h2>
-          <h3>{work.people[0].name}</h3>
-          <h4>{work.dated}</h4>
         </a>
+        <h2>{work.title}</h2>
+        <h3
+          onClick={() => {
+            navigate("/artist/" + work.people[0].personid);
+          }}
+        >
+          {work.people[0].displayname}
+        </h3>
+        <h4>{work.dated}</h4>
       </li>
     ) : (
       <li key={index}>
@@ -48,9 +55,9 @@ export default function Browse() {
             style={{ backgroundImage: "url(" + work.baseimageurl + ")" }}
             alt="work"
           />
-          <h2>{work.title}</h2>
-          <h4>{work.dated}</h4>
         </a>
+        <h2>{work.title}</h2>
+        <h4>{work.dated}</h4>
       </li>
     );
   });
