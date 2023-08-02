@@ -34,7 +34,9 @@ export default function ArtistPage() {
   }
   return (
     <div>
-      <h1>{artist.displayname}</h1>
+      <a href={artist.url} target="_blank" rel="noopener noreferrer">
+        <h1>{artist.displayname}</h1>
+      </a>
     </div>
   );
 }
