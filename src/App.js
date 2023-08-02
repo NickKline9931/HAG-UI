@@ -3,7 +3,7 @@ import Home from "./components/Home";
 import Browse from "./components/Browse";
 import Search from "./components/Search";
 import Artists from "./components/Artists";
-import RandomArtist from "./components/RandomArtist";
+import ArtistPage from "./components/ArtistPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -13,10 +13,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="users" element={<Users />} />
-          <Route path="browse/:page" element={<Browse />} />
+          <Route path="browse" element={<Browse />} />
           <Route path="search/:q?/:page?" element={<Search />} />
           <Route path="artists" element={<Artists />} />
-          <Route path="randomartist" element={<RandomArtist />} />
+          <Route path="artist/:id?" element={<ArtistPage />} />
         </Routes>
       </BrowserRouter>
     </div>
