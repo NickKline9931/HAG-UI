@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import "../styles/ArtistPage.css";
 
 export default function ArtistPage() {
   const { id } = useParams();
