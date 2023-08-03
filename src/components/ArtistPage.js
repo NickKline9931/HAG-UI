@@ -51,7 +51,7 @@ export default function ArtistPage() {
         <a href={work.url} target="_blank" rel="noopener noreferrer">
           <img
             src={work.primaryimageurl + "?height=150&width=150"}
-            className="browseImg"
+            className="workImg"
             style={{ backgroundImage: "url(" + work.baseimageurl + ")" }}
             alt="work"
           />

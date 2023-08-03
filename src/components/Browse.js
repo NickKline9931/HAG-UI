@@ -51,7 +51,7 @@ export default function Browse() {
         <a href={work.url} target="_blank" rel="noopener noreferrer">
           <img
             src={work.primaryimageurl}
-            className="browseImg"
+            className="workImg"
             style={{ backgroundImage: "url(" + work.baseimageurl + ")" }}
             alt="work"
           />

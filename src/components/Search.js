@@ -43,7 +43,12 @@ export default function Search() {
     return res.peoplecount > 0 ? (
       <li key={index}>
         <a href={res.url} target="_blank" rel="noopener noreferrer">
-          <img src={res.primaryimageurl} alt="work" />
+          <img
+            src={res.primaryimageurl}
+            alt="work"
+            className="workImg"
+            style={{ backgroundImage: "url(" + work.baseimageurl + ")" }}
+          />
           <h2>{res.title}</h2>
           <h3>{res.people[0].name}</h3>
           <h4>{res.dated}</h4>
@@ -52,7 +57,12 @@ export default function Search() {
     ) : (
       <li key={index}>
         <a href={res.url} target="_blank" rel="noopener noreferrer">
-          <img src={res.primaryimageurl} alt="work" />
+          <img
+            src={res.primaryimageurl}
+            alt="work"
+            className="workImg"
+            style={{ backgroundImage: "url(" + work.baseimageurl + ")" }}
+          />
           <h2>{res.title}</h2>
           <h4>{res.dated}</h4>
         </a>
