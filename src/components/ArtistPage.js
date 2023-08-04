@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../styles/ArtistPage.css";
 
 export default function ArtistPage() {
+  const { page } = useParams();
   const { id } = useParams();
   const [artist, setArtist] = useState({});
   const [works, setWorks] = useState([]);
@@ -39,7 +40,9 @@ export default function ArtistPage() {
     const response = await fetch(
       "https://api.harvardartmuseums.org/object?person=" +
         id +
-        "&size=20&page=1&fields=title,dated,primaryimageurl,baseimageurl,id,url&apikey=929885c9-4f01-4b51-ab44-041662619591"
+        "&size=20&" +
+        page +
+        "&fields=title,dated,primaryimageurl,baseimageurl,id,url&apikey=929885c9-4f01-4b51-ab44-041662619591"
     );
     const data = await response.json();
     const artData = data.records;
