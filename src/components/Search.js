@@ -48,10 +48,16 @@ export default function Search() {
             src={res.primaryimageurl}
             alt="work"
             className="workImg"
-            style={{ backgroundImage: "url(" + work.baseimageurl + ")" }}
+            style={{ backgroundImage: "url(" + res.baseimageurl + ")" }}
           />
           <h2>{res.title}</h2>
-          <h3>{res.people[0].name}</h3>
+          <h3
+            onClick={() => {
+              navigate("/artist/" + res.people[0].personid + "/page=1");
+            }}
+          >
+            {res.people[0].name}
+          </h3>
           <h4>{res.dated}</h4>
         </a>
       </li>
@@ -62,7 +68,7 @@ export default function Search() {
             src={res.primaryimageurl}
             alt="work"
             className="workImg"
-            style={{ backgroundImage: "url(" + work.baseimageurl + ")" }}
+            style={{ backgroundImage: "url(" + res.baseimageurl + ")" }}
           />
           <h2>{res.title}</h2>
           <h4>{res.dated}</h4>
