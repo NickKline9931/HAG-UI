@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../styles/ArtistPage.css";
 
 export default function ArtistPage() {
+  const navigate = useNavigate();
   const { page } = useParams();
   const { id } = useParams();
   const [artist, setArtist] = useState({});
@@ -10,7 +11,7 @@ export default function ArtistPage() {
 
   useEffect(() => {
     getArtist();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     document.title = artist.displayname + " - Art Museum";
@@ -24,7 +25,7 @@ export default function ArtistPage() {
       );
       const data = await response.json();
       const artData = data.records[0];
-      setArtist(artData);
+      navigate("/artist/" + artData.id + "/page=1");
     } else {
       const response = await fetch(
         "https://api.harvardartmuseums.org/person/" +
