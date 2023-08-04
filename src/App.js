@@ -16,7 +16,7 @@ function App() {
           <Route path="browse" element={<Browse />} />
           <Route path="search/:q?/:page?" element={<Search />} />
           <Route path="artists" element={<Artists />} />
-          <Route path="artist/:id?" element={<ArtistPage />} />
+          <Route path="artist/:id?/:page" element={<ArtistPage />} />
         </Routes>
       </BrowserRouter>
     </div>
