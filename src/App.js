@@ -4,6 +4,7 @@ import Browse from "./components/Browse";
 import Search from "./components/Search";
 import Artists from "./components/Artists";
 import ArtistPage from "./components/ArtistPage";
+import Register from "./components/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="search/:q?/:page?" element={<Search />} />
           <Route path="artists" element={<Artists />} />
           <Route path="artist/:id?/:page" element={<ArtistPage />} />
+          <Route path="register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </div>
