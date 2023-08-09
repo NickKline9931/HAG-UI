@@ -9,8 +9,16 @@ export default function Register() {
     e.preventDefault();
     const user = { email, password };
     userService.createUser(user).then((response) => {
-      alert("Account created with email " + response);
+      alert("Account Created");
     });
+  }
+
+  function changeEmail(e) {
+    setEmail(e.target.value);
+  }
+
+  function changePassword(e) {
+    setPassword(e.target.value);
   }
 
   return (
@@ -19,20 +27,12 @@ export default function Register() {
       <form>
         <label>
           Email:
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <input type="email" value={email} onChange={changeEmail} />
         </label>
 
         <label>
           Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <input type="password" value={password} onChange={changePassword} />
         </label>
 
         <button onClick={(e) => saveUser(e)}>Sign Up</button>

@@ -39,7 +39,7 @@ export default function Browse() {
         <h2>{work.title}</h2>
         <h3
           onClick={() => {
-            navigate("/artist/" + work.people[0].personid);
+            navigate("/artist/" + work.people[0].personid + "/page=1");
           }}
         >
           {work.people[0].displayname}
