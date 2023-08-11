@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import userService from "../UserService";
+import userService from "../service/UserService";
 
 export default function Register() {
   const [email, setEmail] = useState("");
