@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/Browse.css";
 
-export default function Browse() {
+export default function Browse({ saveWork }) {
   const navigate = useNavigate();
   const { page } = useParams();
   const [works, setWorks] = useState([]);
@@ -28,6 +28,9 @@ export default function Browse() {
   const workDisplay = works.map((work, index) => {
     return work.peoplecount > 0 ? (
       <li key={index}>
+        <button type="button" onClick={() => saveWork(work)}>
+          Save
+        </button>
         <a href={work.url} target="_blank" rel="noopener noreferrer">
           <img
             src={work.primaryimageurl + "?height=150&width=150"}

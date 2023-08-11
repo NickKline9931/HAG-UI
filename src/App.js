@@ -31,10 +31,16 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="users" element={<Users />} />
-          <Route path="browse" element={<Browse />} />
-          <Route path="search/:q?/:page?" element={<Search />} />
+          <Route path="browse" element={<Browse saveWork={saveWork} />} />
+          <Route
+            path="search/:q?/:page?"
+            element={<Search saveWork={saveWork} />}
+          />
           <Route path="artists" element={<Artists />} />
-          <Route path="artist/:id?/:page" element={<ArtistPage />} />
+          <Route
+            path="artist/:id?/:page"
+            element={<ArtistPage saveWork={saveWork} />}
+          />
           <Route path="register" element={<Register />} />
         </Routes>
       </BrowserRouter>
