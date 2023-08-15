@@ -6,7 +6,7 @@ import Artists from "./components/Artists";
 import ArtistPage from "./components/ArtistPage";
 import Register from "./components/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import savedWorkService from "service/SavedWorkService";
+import savedWorkService from "./service/SavedWorkService";
 
 function App() {
   function saveWork(work) {
@@ -18,10 +18,9 @@ function App() {
       dated: work.dated,
       artist: work.people[0],
       artistId: work.people[0].personid,
-      url: work.url,
     };
     savedWorkService.SaveWork(savedWork).then((response) => {
-      alert("Account Created");
+      alert("Saved");
     });
   }
 
